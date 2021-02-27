@@ -33,3 +33,15 @@ def findOldPeople():
     mask = (bef_stats_df[:,0] == 2015) & (bef_stats_df[:,2] >65) & (bef_stats_df[:,1]!=99)
     sum = np.sum(bef_stats_df[mask][:,4])
     print("People above 65 in cph areas: " , sum)
+
+def findOldPeopleNotDK():  
+    mask = (bef_stats_df[:,0] == 2015) & (bef_stats_df[:,2] >65) & (bef_stats_df[:,1]!=99) & (bef_stats_df[:,3]!=5100)
+    sum = np.sum(bef_stats_df[mask][:,4])
+    print("People above 65 outside of DK: " , sum)
+
+def changeØ():
+    østerbro_personer = []
+    for x in range(0, 24):
+        mask = (bef_stats_df[:,0] == (1992 + x)) & (bef_stats_df[:,1] == 3)
+        østerbro_personer.append(np.sum(bef_stats_df[mask]))
+    plt.plot([x for x in range(1992, 2016)], østerbro_personer)
