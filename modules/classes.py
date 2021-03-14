@@ -10,6 +10,7 @@ class Student:
         self.data_sheet = data_sheet
         self.image_url = image_url
     
+    
     def get_avg_grade(self):
         tmp_avg_grade = 0
         for element in self.data_sheet.courses:
